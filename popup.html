@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="content.js"></script>
+    <title>Response Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #add-input {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f4f4f4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Corrected version</h2>
+    <pre id="add-input"></pre>
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+
+    <script>
+        function copyToClipboard() {
+            const text = document.getElementById("add-input").innerText;
+            navigator.clipboard.writeText(text).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
+
+</body>
+</html>
