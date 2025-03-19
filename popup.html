@@ -33,18 +33,13 @@
 </head>
 <body>
 
+   
     <h2>Corrected version</h2>
     <pre id="add-input"></pre>
-    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    <button id="copy-button">Copy to Clipboard</button>
 
-    <script>
-        function copyToClipboard() {
-            const text = document.getElementById("add-input").innerText;
-            navigator.clipboard.writeText(text).catch(err => {
-                console.error("Failed to copy: ", err);
-            });
-        }
-    </script>
+    <script src="script.js"></script>
+   
 
 </body>
 </html>
