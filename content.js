@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyC99Y2xhn8J0weF7VPMNhawViwJNwaMhXs'; // Replace with your actual API key
+const API_KEY = 'AIzaSyC99Y2xhn8J0weF7VPMNhawViwJNwaMhXs'; 
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
 async function getGeminiResponse(prompt) {
@@ -30,9 +30,8 @@ async function getGeminiResponse(prompt) {
     }
 }
 
-// Function to handle button click
 function askGemini(textString) {
-    const userInput = "Correct the grammatical errors given below. Don't change anything not based on grammatical error" + textString;
+    const userInput = "Correct the grammatical errors given below. Don't change anything not based on grammatical error. Don't explain the channges but don't highlight it." + textString;
     const responseText = document.getElementById('add-input');
 
     if (userInput.trim() === '') {
@@ -51,7 +50,6 @@ function askGemini(textString) {
 document.addEventListener("DOMContentLoaded", () => {
     chrome.storage.local.get("selectedText", (data) => {
         if (data.selectedText) {
-            // document.getElementById("add-input").innerText = data.selectedText;
             askGemini(data.selectedText);
         }
     });

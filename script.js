@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("copy-button").addEventListener("click", copyToClipboard);
+    document.getElementById("regen").addEventListener("click", regenerate);
 });
 
 function copyToClipboard() {
@@ -10,5 +11,13 @@ function copyToClipboard() {
             .catch(err => console.error("Failed to copy: ", err));
     } else {
         console.error("Nothing to copy!");
-    }
+    }
+}
+
+function regenerate() {
+    chrome.storage.local.get("selectedText", (data) => {
+        if (data.selectedText) {
+            askGemini(data.selectedText);
+        }
+    });
 }
